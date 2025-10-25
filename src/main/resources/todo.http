@@ -1,0 +1,12 @@
+### Get all todo items
+GET localhost:8080/todo
+
+### Add a new todo item
+POST localhost:8080/todo
+Content-Type: application/json
+
+{
+  "text": "Buy groceries",
+  "date": "2025-10-25T15:30:00Z",
+  "color": "blue"
+}
