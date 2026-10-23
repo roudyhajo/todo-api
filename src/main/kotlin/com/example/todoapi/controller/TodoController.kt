@@ -2,13 +2,12 @@ package com.example.todoapi.controller
 
 import com.example.todoapi.entity.Todo
 import com.example.todoapi.repository.TodoRepository
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.time.Instant
 
 @RestController
+// Prefix: /api/v1/
+@RequestMapping("/api/v1")
 class TodoController(private val todoRepository: TodoRepository) {
     @GetMapping("/todo")
     fun getTodos() : List<Todo> {
