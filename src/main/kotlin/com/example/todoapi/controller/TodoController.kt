@@ -11,18 +11,6 @@ import java.time.Instant
  * REST controller for managing Todo items.
  * Provides endpoints for CRUD operations and bulk actions.
  */
-@CrossOrigin(
-    originPatterns = ["http://localhost:*", "http://127.0.0.1:*"],
-    allowedHeaders = ["*"],
-    methods = [
-        RequestMethod.GET,
-        RequestMethod.POST,
-        RequestMethod.PUT,
-        RequestMethod.PATCH,
-        RequestMethod.DELETE,
-        RequestMethod.OPTIONS
-    ]
-)
 @RestController
 @RequestMapping("/api/v1/todos")
 class TodoController(private val todoRepository: TodoRepository) {
