@@ -42,4 +42,10 @@ jobs:
             -H "Content-Type: application/json" \
             -H "X-Api-Key: $KOMODO_KEY" \
             -H "X-Api-Secret: $KOMODO_SECRET" \
+            -d '{"type":"PullStack","params":{"stack":"todo-stack"}}'
+
+          curl -f -X POST "https://komodo.roudyhajo.fr/execute" \
+            -H "Content-Type: application/json" \
+            -H "X-Api-Key: $KOMODO_KEY" \
+            -H "X-Api-Secret: $KOMODO_SECRET" \
             -d '{"type":"DeployStack","params":{"stack":"todo-stack"}}'
