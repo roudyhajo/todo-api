@@ -32,3 +32,14 @@ jobs:
           context: .
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+      - name: Trigger Komodo Deploy
+        env:
+          KOMODO_KEY: ${{ secrets.KOMODO_API_KEY }}
+          KOMODO_SECRET: ${{ secrets.KOMODO_API_SECRET }}
+        run: |
+          curl -f -X POST "https://komodo.roudyhajo.fr/execute" \
+            -H "Content-Type: application/json" \
+            -H "X-Api-Key: $KOMODO_KEY" \
+            -H "X-Api-Secret: $KOMODO_SECRET" \
+            -d '{"type":"DeployStack","params":{"stack":"todo-stack"}}'
